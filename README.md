@@ -40,7 +40,7 @@ chmod +x run.sh
 Example command:
 
 ```sh
-python scraper.py --link "https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/description/" --author "Abubakir Koshek. email: koshek [dot] [at] [phystech default mail]"
+python scraper.py --link "https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/description/" --author "Abubakir Koshek. email: koshek[dot]a[at][phystech default mail]"
 ```
 
 This will generate `problem_description.md` containing:
@@ -66,4 +66,4 @@ project_root/
 ## Author
 Developed by **Abubakir Koshek**
 
-For any issues, feel free to contact via email: `koshek [dot] [at] [phystech default mail]`
+For any issues, feel free to contact via email: `koshek[dot]a[at][phystech default mail]`

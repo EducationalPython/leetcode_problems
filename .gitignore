@@ -1,0 +1,82 @@
+### OS-specific files ###
+.DS_Store
+Thumbs.db
+*.swp
+*~
+*.bak
+
+### Python ###
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+*.egg
+.env
+.venv
+
+### Jupyter Notebooks ###
+*.ipynb_checkpoints/
+*.ipynb
+
+### Build Files (except CMakeLists.txt) ###
+CMakeCache.txt
+CMakeFiles/
+*.o
+*.obj
+*.so
+*.dll
+*.exe
+*.out
+*.a
+*.lib
+*.lo
+*.la
+*.class
+*.jar
+*.war
+*.ear
+
+# Keep CMakeLists.txt
+!CMakeLists.txt
+
+### Logs and Debug Files ###
+*.log
+*.tmp
+*.pid
+*.seed
+*.state
+*.swp
+*.swo
+
+### Virtual Environments ###
+venv/
+ENV/
+.env/
+.pip-selfcheck.json
+
+### Version Control ###
+.git/
+*.orig
+
+### IDE / Editor files ###
+.vscode/
+.idea/
+*.sublime-workspace
+*.code-workspace
+
+### Misc ###
+node_modules/
+npm-debug.log
+yarn.lock
+package-lock.json
+
+### JetBrains ###
+*.iml
+*.iws
+*.ipr
+/.idea
+
+### Generated files ###
+*.min.js
+*.map

@@ -2,17 +2,18 @@ import os
 import time
 import argparse
 import bs4
+import html2text
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import WebDriverException
 from selenium.common.exceptions import WebDriverException, TimeoutException
-from tqdm import tqdm
-import pandas as pd
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--link", type=str)
+parser.add_argument("--author", type=str, default="")
 args = parser.parse_args()
 PROBLEM_LINK = args.link
+AUTHOR = args.author
 
 def set_chrome_options():
     """Set Chrome options for Selenium WebDriver."""
@@ -45,10 +46,15 @@ def scrape_description():
         # Extract the problem description
         description_div = soup.find("div", {"data-track-load": "description_content"})
         problem_title_a = soup.find("a", {"href" : f"/{'/'.join(PROBLEM_LINK[8:].split('/')[1:3])}/"})
-        with open("problem_description.txt", "w", encoding="utf-8") as f:
-            f.write(problem_title_a.get_text())
-            f.write('\n')
-            f.write(str(description_div))
+        extracted_html = f"<h1>{problem_title_a.get_text()}</h1>\n"
+        extracted_html += "<h2>Problem Description</h2>\n"
+        extracted_html += str(description_div)
+        if AUTHOR:
+            extracted_html += "<h2>Solution Author</h2>"
+            extracted_html += f"<p>{AUTHOR}</p>"
+        markdown = html2text.html2text(extracted_html)
+        with open('problem_description.md', 'w') as f:
+            f.write(markdown)
         driver.quit()  # Ensure WebDriver is closed before returning
         return True if description_div is not None else False
     
